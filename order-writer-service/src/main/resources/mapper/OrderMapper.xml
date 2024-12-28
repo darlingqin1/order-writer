@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leiyi.mapper.OrderMapper">
+
+    <!-- 基础查询所有记录 -->
+    <select id="selectAll" resultType="com.leiyi.dataobject.Order">
+        SELECT * FROM `order_0`
+    </select>
+
+    <!-- 根据ID查询 -->
+    <select id="selectById" parameterType="java.lang.Integer" resultType="com.leiyi.dataobject.Order">
+        SELECT * FROM `order_0` WHERE id = #{id}
+    </select>
+
+
+    <!-- 根据ID更新记录 -->
+    <update id="updateById" parameterType="com.leiyi.dataobject.Order">
+        UPDATE `order_0`
+        SET orderId = #{orderId},
+            update_time = #{updateTime},
+            remark = #{remark}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 根据ID删除记录 -->
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        DELETE FROM `order` WHERE id = #{id}
+    </delete>
+
+</mapper>
