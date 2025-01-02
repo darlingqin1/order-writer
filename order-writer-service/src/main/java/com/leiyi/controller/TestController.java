@@ -26,6 +26,6 @@ public class TestController {
         QueryWrapper<Order> queryWrapper = new QueryWrapper<>();
         order.setOrderId(String.valueOf(orderId));
         int insert = orderMapper.insert(order);
-        return String.valueOf(insert);
+        return String.valueOf(order.getId());
     }
 }
