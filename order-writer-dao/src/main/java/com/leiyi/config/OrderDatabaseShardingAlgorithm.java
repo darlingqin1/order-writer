@@ -11,21 +11,22 @@ import java.util.Objects;
 
 @Component
 @Slf4j
-public class OrderDatabaseShardingAlgorithm implements PreciseShardingAlgorithm<Long> {
+public class OrderDatabaseShardingAlgorithm implements PreciseShardingAlgorithm<String> {
 
     private static final String SHARDING_NAME = "order_id";
 
-    private static final String DATABASE_NAME_PREFIX = "order_";
+    private static final String DATABASE_NAME_PREFIX = "order";
 
     @Override
-    public String doSharding(Collection<String> collection, PreciseShardingValue<Long> preciseShardingValue) {
+    public String doSharding(Collection<String> collection, PreciseShardingValue<String> preciseShardingValue) {
         String columnName = preciseShardingValue.getColumnName();
         if (!Objects.equals(columnName, SHARDING_NAME)) {
             log.error("订单库表分片键错误,columnName:{}", columnName);
             throw new RuntimeException("订单库表分片键错误,columnName:" + columnName);
         }
-        long databaseNumber = ShardingUtil.getDatabaseNumber(preciseShardingValue.getValue());
-        log.info("订单表最终定位到的库：{}", databaseNumber);
+        String orderId = preciseShardingValue.getValue();
+        long databaseNumber = ShardingUtil.getDatabaseNumber(Long.valueOf(orderId));
+        log.info("订单:{},最终定位到的库：{}", orderId, databaseNumber);
         return DATABASE_NAME_PREFIX + databaseNumber;
     }
 }

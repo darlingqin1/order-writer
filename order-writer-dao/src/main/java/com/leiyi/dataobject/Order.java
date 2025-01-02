@@ -13,11 +13,11 @@ import java.time.LocalDateTime;
  * 对应数据库表：order_0
  */
 @Data
-@TableName("order_0") // 对应数据库中的表名
+@TableName("`order`") // 对应数据库中的表名
 public class Order {
 
     @TableId(value = "id", type = IdType.AUTO) // 指定主键字段和主键生成策略
-    private Integer id;
+    private Long id;
 
     private String orderId;
 
