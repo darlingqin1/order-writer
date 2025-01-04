@@ -76,6 +76,20 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- Druid连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>1.2.6</version>
+            </dependency>
+
+            <!-- MyBatis-Plus 核心依赖 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.5.3</version> <!-- 最新稳定版本 -->
+            </dependency>
+
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
@@ -88,12 +102,7 @@
                 <version>2021.0.4.0</version> <!-- 最新稳定版 -->
             </dependency>
 
-            <!-- MyBatis-Plus 核心依赖 -->
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>3.5.3</version> <!-- 最新稳定版本 -->
-            </dependency>
+
 
 
             <dependency>
@@ -102,12 +111,13 @@
                 <version>8.0.33</version>
             </dependency>
 
-            <!-- Druid连接池 -->
             <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
-                <version>1.2.6</version>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-typehandlers-jsr310</artifactId>
+                <version>1.0.2</version>
             </dependency>
+
+
 
             <!-- Sharding-JDBC -->
             <dependency>

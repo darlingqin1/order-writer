@@ -6,12 +6,10 @@ import com.leiyi.dataobject.Order;
 import com.leiyi.mapper.OrderMapper;
 import org.apache.http.entity.HttpEntityWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.swing.text.html.parser.Entity;
+import java.util.List;
 
 @RestController
 @RequestMapping("/test")
@@ -27,5 +25,18 @@ public class TestController {
         order.setOrderId(String.valueOf(orderId));
         int insert = orderMapper.insert(order);
         return String.valueOf(order.getId());
+    }
+
+
+    @GetMapping("/queryOrderById")
+    public Order queryOrderById(@RequestParam("id") Long id) {
+        return orderMapper.selectById(id);
+    }
+
+    @GetMapping("/queryOrdersByOrderId")
+    public List<Order> queryOrdersByOrderId(@RequestParam("orderId") String orderId) {
+        QueryWrapper<Order> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("order_id", orderId);
+        return orderMapper.selectList(queryWrapper);
     }
 }

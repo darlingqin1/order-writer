@@ -25,6 +25,11 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-typehandlers-jsr310</artifactId>
+        </dependency>
+
         <!-- MyBatis-Plus 核心依赖 -->
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -44,6 +49,7 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
+
 
         <dependency>
             <groupId>com.alibaba</groupId>
